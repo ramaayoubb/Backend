@@ -1,0 +1,22 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout backend repo
+        uses: actions/checkout@v4
+
+      - name: Build backend image
+        run: docker build -t taskapp-backend .
+
+      - name: Run docker compose
+        run: docker compose up --build -d
+
+      - name: Show running containers
+        run: docker ps
