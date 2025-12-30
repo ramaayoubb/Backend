@@ -1,11 +1,11 @@
-name: Backend CI
+name: Backend ci-cd
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
